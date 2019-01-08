@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Little Social Network</string>
+    <string name="add_post">Добавить пост</string>
+</resources>
