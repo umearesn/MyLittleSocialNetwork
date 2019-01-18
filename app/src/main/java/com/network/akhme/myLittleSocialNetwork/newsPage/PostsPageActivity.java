@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.network.akhme.mylittlesocialnetwork.R;
+import com.network.akhme.myLittleSocialNetwork.R;
 
 import java.util.ArrayList;
 

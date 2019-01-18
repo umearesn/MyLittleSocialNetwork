@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.network.akhme.mylittlesocialnetwork.R;
+import com.network.akhme.myLittleSocialNetwork.R;
 
 import java.util.ArrayList;
 

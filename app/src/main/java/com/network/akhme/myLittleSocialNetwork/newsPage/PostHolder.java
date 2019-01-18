@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.network.akhme.mylittlesocialnetwork.R;
+import com.network.akhme.myLittleSocialNetwork.R;
 
 public class PostHolder extends RecyclerView.ViewHolder {
     public TextView authorView;
