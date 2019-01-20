@@ -1,45 +1,55 @@
 package com.network.akhme.myLittleSocialNetwork.newsPage;
 
-import com.network.akhme.myLittleSocialNetwork.network.ApiUsage;
-
-import org.json.JSONObject;
-
-import java.util.ArrayList;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Post {
 
-    private String authorName;
+    @SerializedName("userId")
+    @Expose
+    private int userId;
 
-    private String content;
+    @SerializedName("id")
+    @Expose
+    private int id;
 
-    public String getAuthorName() {
-        return authorName;
+    @SerializedName("title")
+    @Expose
+    private String title;
+
+    @SerializedName("body")
+    @Expose
+    private String body;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public String getContent() {
-        return content;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public Post(String name, String text){
-        this.authorName = name;
-        this.content = text;
+    public int getId() {
+        return id;
     }
 
-    public static ArrayList<Post> createPostsList(int amount){
-        ArrayList<Post> contacts = new ArrayList<Post>();
-        ApiUsage downloader = new ApiUsage();
-        for (int i = 1; i <= amount; i++) {
-            JSONObject post = null;
-            String postName = null;
-            String postContent = null;
-            try {
-                post = downloader.getPosts();
-                postName = post.getString("userID");
-                postContent = post.getString("body");
-            } catch (Exception error) {}
-            contacts.add(new Post(postName, postContent));
-        }
-        return contacts;
+    public void setId(int id) {
+        this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
 }

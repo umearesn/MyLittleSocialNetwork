@@ -6,8 +6,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.network.akhme.myLittleSocialNetwork.R;
+import com.network.akhme.myLittleSocialNetwork.network.NetworkService;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PostsPageActivity extends AppCompatActivity {
 
@@ -20,7 +25,21 @@ public class PostsPageActivity extends AppCompatActivity {
         setContentView(R.layout.post_page_activity);
         feedRecycler = findViewById(R.id.postsPage);
         feedRecycler.setLayoutManager(new LinearLayoutManager(this));
-        PostsAdapter adapter = new PostsAdapter(Post.createPostsList(20));
+        NetworkService.getInstance()
+                .getJSONApi()
+                .getAllPosts()
+                .enqueue(new Callback<ArrayList<Post>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Post>> call, Response<ArrayList<Post>> response) {
+                        postsFeed = response.body();
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Post>> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+        PostsAdapter adapter = new PostsAdapter(postsFeed);
         feedRecycler.setAdapter(adapter);
     }
 
