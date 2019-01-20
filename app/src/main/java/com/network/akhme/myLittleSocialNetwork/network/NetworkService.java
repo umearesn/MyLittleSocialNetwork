@@ -1,6 +1,7 @@
 package com.network.akhme.myLittleSocialNetwork.network;
 
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkService {
     private static NetworkService sInstance = null;
@@ -18,6 +19,7 @@ public class NetworkService {
     private NetworkService() {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
