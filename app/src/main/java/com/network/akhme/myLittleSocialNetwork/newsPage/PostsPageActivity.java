@@ -18,9 +18,11 @@ public class PostsPageActivity extends AppCompatActivity {
 
     private ArrayList<Post> postsFeed;
     private RecyclerView feedRecycler;
+    private PostsAdapter adapter;
+    private Post post;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_page_activity);
         feedRecycler = findViewById(R.id.postsPage);
@@ -31,7 +33,8 @@ public class PostsPageActivity extends AppCompatActivity {
                 .enqueue(new Callback<ArrayList<Post>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Post>> call, Response<ArrayList<Post>> response) {
-                        postsFeed = response.body();
+                        adapter = new PostsAdapter(response.body());
+                        feedRecycler.setAdapter(adapter);
                     }
 
                     @Override
@@ -39,10 +42,6 @@ public class PostsPageActivity extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-        PostsAdapter adapter = new PostsAdapter(postsFeed);
-        feedRecycler.setAdapter(adapter);
     }
-
-
-
 }
+
