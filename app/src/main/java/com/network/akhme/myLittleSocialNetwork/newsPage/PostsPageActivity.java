@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 
 import com.network.akhme.myLittleSocialNetwork.R;
+import com.network.akhme.myLittleSocialNetwork.addPostPage.AddPostPage;
 import com.network.akhme.myLittleSocialNetwork.network.PostRepository;
 
 import java.util.ArrayList;
@@ -40,9 +42,16 @@ public class PostsPageActivity extends AppCompatActivity {
             }
         });
 
-        /*final Button addPost = (Button) findViewById(R.id.addPost);
-        addPost.setOnClickListener(new Intent());*/
-
+        final Button addPost = (Button) findViewById(R.id.addPost);
+        addPost.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent toAddPostPage = new Intent(PostsPageActivity.this,
+                                AddPostPage.class);
+                        startActivity(toAddPostPage);
+                    }
+                });
     }
 }
 
