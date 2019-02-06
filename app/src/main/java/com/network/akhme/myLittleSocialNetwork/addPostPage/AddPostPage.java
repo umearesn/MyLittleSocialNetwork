@@ -22,7 +22,7 @@ public class AddPostPage extends AppCompatActivity {
         final EditText editTitle = (EditText) findViewById(R.id.editPostTitle);
         final EditText editBody = (EditText) findViewById(R.id.editPostBody);
 
-        final Button sendNewPost = (Button) findViewById(R.id.send_button);
+        final Button sendNewPost = (Button) findViewById(R.id.sendButton);
         sendNewPost.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

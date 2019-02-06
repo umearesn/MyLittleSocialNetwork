@@ -2,7 +2,7 @@
     <string name="app_name">My Little Social Network</string>
     <string name="add_post">Добавить пост</string>
     <string name="add_post_page_header">Добавление поста</string>
-    <string name="add_title">Добавьте заголовок (он не будет отображен)</string>
+    <string name="add_title">Добавьте заголовок</string>
     <string name="add_body">Добавьте ваш пост</string>
     <string name="send_new_post">Отправить</string>
 </resources>

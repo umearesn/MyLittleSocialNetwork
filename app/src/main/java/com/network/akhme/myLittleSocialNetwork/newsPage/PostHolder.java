@@ -8,10 +8,12 @@ import com.network.akhme.myLittleSocialNetwork.R;
 
 public class PostHolder extends RecyclerView.ViewHolder {
     public TextView authorView;
-    public TextView contentView;
+    public TextView bodyView;
+    public TextView titleView;
     public PostHolder(View postView) {
         super(postView);
         authorView = (TextView) postView.findViewById(R.id.postAuthor);
-        contentView = (TextView) postView.findViewById(R.id.content);
+        titleView = (TextView) postView.findViewById(R.id.postTitle);
+        bodyView = (TextView) postView.findViewById(R.id.postBody);
     }
 }
