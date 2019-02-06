@@ -4,4 +4,5 @@
     <color name="postBody">#CCCCFF</color>
     <color name="headerColor">#BBFFBB</color>
     <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

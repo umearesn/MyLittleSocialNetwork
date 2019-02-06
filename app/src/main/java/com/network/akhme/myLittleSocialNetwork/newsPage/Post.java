@@ -52,4 +52,11 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
+
+    public Post(int userID, int ID, String title, String body){
+        this.userId = userID;
+        this.id = ID;
+        this.title = title;
+        this.body = body;
+    }
 }

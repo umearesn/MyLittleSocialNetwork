@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface JSONPlaceHolderApi {
@@ -15,4 +16,7 @@ public interface JSONPlaceHolderApi {
 
     @GET("/posts")
     public Call<ArrayList<Post>> getAllPosts();
+
+    @POST("/posts")
+    public Call<Post> addNewPost(Post newPost);
 }
