@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Adapter;
 
 import com.network.akhme.myLittleSocialNetwork.addPostPage.AddPostPage;
+import com.network.akhme.myLittleSocialNetwork.newsPage.OnPostListener;
 import com.network.akhme.myLittleSocialNetwork.newsPage.Post;
 import com.network.akhme.myLittleSocialNetwork.newsPage.PostsAdapter;
 import com.network.akhme.myLittleSocialNetwork.newsPage.PostsPageActivity;
@@ -18,14 +19,14 @@ import retrofit2.Response;
 
 public class PostRepository implements PostRepositoryInterface {
 
-    public void getAllPosts(final RecyclerView feedRecycler) {
+    public void getAllPosts(final RecyclerView feedRecycler, final OnPostListener onPostListener) {
         NetworkService.getInstance()
                 .getJSONApi()
                 .getAllPosts()
                 .enqueue(new Callback<ArrayList<Post>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Post>> call, Response<ArrayList<Post>> response) {
-                        feedRecycler.setAdapter(new PostsAdapter(response.body()));
+                        feedRecycler.setAdapter(new PostsAdapter(response.body(), onPostListener));
                     }
 
                     @Override
