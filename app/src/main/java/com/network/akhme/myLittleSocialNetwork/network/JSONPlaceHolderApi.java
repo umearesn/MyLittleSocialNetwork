@@ -1,5 +1,6 @@
 package com.network.akhme.myLittleSocialNetwork.network;
 
+import com.network.akhme.myLittleSocialNetwork.newsPage.Comment;
 import com.network.akhme.myLittleSocialNetwork.newsPage.Post;
 
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ public interface JSONPlaceHolderApi {
 
     @GET("/posts")
     public Call<ArrayList<Post>> getAllPosts();
+
+    @GET("comments?postId={postId}")
+    public Call<ArrayList<Comment>> getComments(@Path("postId") int postId);
 
     @POST("/posts")
     public Call<Post> addNewPost(@Body Post newPost);
