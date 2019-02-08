@@ -22,6 +22,9 @@
         <activity
             android:name="com.network.akhme.myLittleSocialNetwork.addPostPage.AddPostPage">
         </activity>
+        <activity
+            android:name="com.network.akhme.myLittleSocialNetwork.newsPage.PostCommentsActivity">
+        </activity>
 
     </application>
 

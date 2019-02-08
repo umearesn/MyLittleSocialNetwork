@@ -9,14 +9,14 @@ import com.network.akhme.myLittleSocialNetwork.R;
 public class CommentHolder extends RecyclerView.ViewHolder {
 
     public TextView authorName;
-    public TextView postName;
-    public TextView postBody;
+    public TextView commentName;
+    public TextView commentBody;
 
     public CommentHolder(View commentView) {
         super(commentView);
         authorName = (TextView) commentView.findViewById(R.id.commentAuthor);
-        postName = (TextView) commentView.findViewById(R.id.commentName);
-        postBody = (TextView) commentView.findViewById(R.id.commentBody);
+        commentName = (TextView) commentView.findViewById(R.id.commentName);
+        commentBody = (TextView) commentView.findViewById(R.id.commentBody);
     }
 
 }

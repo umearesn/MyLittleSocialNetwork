@@ -18,13 +18,15 @@ import java.util.ArrayList;
 
 public class PostsPageActivity extends AppCompatActivity {
 
-    private ArrayList<Post> feed;
     private RecyclerView feedRecycler;
     private OnPostListener onPostListener = new OnPostListener() {
         @Override
         public void onPostClick(int position) {
             feedRecycler.getAdapter().getItemId(position);
-            Intent testIntent = new Intent(PostsPageActivity.this, AddPostPage.class);
+            Intent testIntent = new Intent(PostsPageActivity.this, PostCommentsActivity.class);
+            testIntent.putExtra("postId", position);
+            /*View postView = feedRecycler.getLayoutManager().findViewByPosition(position);
+            testIntent.putExtra("post", );*/
             startActivity(testIntent);
         }
     };
@@ -48,12 +50,5 @@ public class PostsPageActivity extends AppCompatActivity {
                 });
     }
 
-    public OnPostListener getOnPostListener() {
-        return onPostListener;
-    }
-
-    public RecyclerView getFeedRecycler(){
-        return feedRecycler;
-    }
 }
 

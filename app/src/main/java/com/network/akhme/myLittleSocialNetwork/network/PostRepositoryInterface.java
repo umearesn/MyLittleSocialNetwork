@@ -13,8 +13,12 @@ import retrofit2.http.POST;
 
 public interface PostRepositoryInterface {
 
+    //public static PostRepository getInstance();
+
     public void getAllPosts(final RecyclerView feedRecycler, final OnPostListener onPostListener);
 
     public void addNewPost(Post newPost);
+
+    public void getComments(final RecyclerView commentRecycler, int position);
 
 }

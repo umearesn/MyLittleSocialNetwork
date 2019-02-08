@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Adapter;
 
 import com.network.akhme.myLittleSocialNetwork.addPostPage.AddPostPage;
+import com.network.akhme.myLittleSocialNetwork.newsPage.Comment;
+import com.network.akhme.myLittleSocialNetwork.newsPage.CommentAdapter;
 import com.network.akhme.myLittleSocialNetwork.newsPage.OnPostListener;
 import com.network.akhme.myLittleSocialNetwork.newsPage.Post;
 import com.network.akhme.myLittleSocialNetwork.newsPage.PostsAdapter;
@@ -18,6 +20,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PostRepository implements PostRepositoryInterface {
+
+    /*private static PostRepository repInstance = null;
+
+    public static PostRepository getInstance() {
+        if(repInstance == null) {
+            repInstance = new PostRepository();
+        }
+        return repInstance;
+    }*/
 
     public void getAllPosts(final RecyclerView feedRecycler, final OnPostListener onPostListener) {
         NetworkService.getInstance()
@@ -40,6 +51,23 @@ public class PostRepository implements PostRepositoryInterface {
         NetworkService.getInstance()
                 .getJSONApi()
                 .addNewPost(newPost);
+    }
+
+    public void getComments(final RecyclerView commentRecycler, int postId){
+        NetworkService.getInstance()
+                .getJSONApi()
+                .getComments(postId)
+                .enqueue(new Callback<ArrayList<Comment>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Comment>> call, Response<ArrayList<Comment>> response) {
+                        commentRecycler.setAdapter(new CommentAdapter(response.body()));
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Comment>> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
     }
 }
 

@@ -2,6 +2,7 @@ package com.network.akhme.myLittleSocialNetwork.newsPage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostHolder> {
 
 
     @Override
-    public PostHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public PostHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -41,13 +42,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostHolder> {
         holder.bodyView.setText(post.getBody());
     }
 
-    public ArrayList<Post> getFeed(){
-        return this.postsFeed;
-    }
-
     @Override
     public int getItemCount() {
         return  postsFeed.size();
+    }
+
+    public Post getItem(int position) {
+        return postsFeed.get(position);
     }
 
 }
