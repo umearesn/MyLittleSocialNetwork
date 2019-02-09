@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.newsPage;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.newsPage;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.network.akhme.myLittleSocialNetwork.R;
+import com.network.akhme.myLittleSocialNetwork.presentation.view.listener.OnPostListener;
 
 public class PostHolder extends RecyclerView.ViewHolder implements OnClickListener {
     public TextView authorView;

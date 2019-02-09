@@ -1,12 +1,11 @@
-package com.network.akhme.myLittleSocialNetwork.network;
+package com.network.akhme.myLittleSocialNetwork.data;
 
-import com.network.akhme.myLittleSocialNetwork.newsPage.Comment;
-import com.network.akhme.myLittleSocialNetwork.newsPage.Post;
+import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
+import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;

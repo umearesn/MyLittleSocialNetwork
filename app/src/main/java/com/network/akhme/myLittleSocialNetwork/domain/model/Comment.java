@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.newsPage;
+package com.network.akhme.myLittleSocialNetwork.domain.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

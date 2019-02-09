@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.newsPage;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.network.akhme.myLittleSocialNetwork.R;
+import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
+import com.network.akhme.myLittleSocialNetwork.presentation.view.holder.CommentHolder;
 
 import java.util.ArrayList;
 

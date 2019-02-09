@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.addPostPage;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,11 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.network.akhme.myLittleSocialNetwork.R;
-import com.network.akhme.myLittleSocialNetwork.network.PostRepository;
-import com.network.akhme.myLittleSocialNetwork.newsPage.Post;
-import com.network.akhme.myLittleSocialNetwork.newsPage.PostsPageActivity;
+import com.network.akhme.myLittleSocialNetwork.data.NetworkRepositoryImplementation;
+import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 
-public class AddPostPage extends AppCompatActivity {
+public class AddPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +29,9 @@ public class AddPostPage extends AppCompatActivity {
                         Post newPost = new Post(0, 0,
                                 editTitle.getText().toString(),
                                 editBody.getText().toString());
-                        new PostRepository().addNewPost(newPost);
-                        Intent toPostsPage = new Intent(AddPostPage.this,
-                                PostsPageActivity.class);
+                        new NetworkRepositoryImplementation().addNewPost(newPost);
+                        Intent toPostsPage = new Intent(AddPostActivity.this,
+                                PostsActivity.class);
                         startActivity(toPostsPage);
                     }
                 });
