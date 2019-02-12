@@ -1,7 +1,10 @@
 package com.network.akhme.myLittleSocialNetwork.data;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
+import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.domain.repository.NetworkRepository;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.presentation.view.adapter.CommentAdapter;
@@ -18,6 +21,26 @@ import retrofit2.Response;
 public class NetworkRepositoryImplementation implements NetworkRepository {
 
     private static JSONPlaceHolderApi networkApi = NetworkService.getInstance().getJSONApi();
+
+    public void getPostById(int id, final View postView) {
+        networkApi.getPostWithID(id)
+                .enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+                        final TextView author =  (TextView) postView.findViewById(R.id.postAuthor);
+                        author.setText(Integer.toString(response.body().getUserId()));
+                        final TextView title =  (TextView) postView.findViewById(R.id.postTitle);
+                        title.setText(response.body().getTitle());
+                        final TextView body =  (TextView) postView.findViewById(R.id.postBody);
+                        body.setText(response.body().getBody());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+    }
 
     public void getAllPosts(final RecyclerView feedRecycler, final OnPostListener onPostListener) {
         networkApi.getAllPosts()

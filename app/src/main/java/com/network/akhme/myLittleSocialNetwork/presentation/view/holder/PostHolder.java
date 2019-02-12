@@ -12,7 +12,14 @@ public class PostHolder extends RecyclerView.ViewHolder implements OnClickListen
     public TextView authorView;
     public TextView bodyView;
     public TextView titleView;
-    public OnPostListener onPostListener;
+    public OnPostListener onPostListener = null;
+
+    /*public PostHolder(View postView){
+        super(postView);
+        authorView = (TextView) postView.findViewById(R.id.postAuthor);
+        titleView = (TextView) postView.findViewById(R.id.postTitle);
+        bodyView = (TextView) postView.findViewById(R.id.postBody);
+    }*/
 
     public PostHolder(View postView, OnPostListener onPostListener) {
         super(postView);
