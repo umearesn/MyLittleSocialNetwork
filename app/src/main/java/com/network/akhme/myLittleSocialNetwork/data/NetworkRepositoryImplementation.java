@@ -1,8 +1,10 @@
 package com.network.akhme.myLittleSocialNetwork.data;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.domain.repository.NetworkRepository;
@@ -57,10 +59,22 @@ public class NetworkRepositoryImplementation implements NetworkRepository {
                 });
     }
 
-    public void addNewPost(Post newPost) {
+    public void addNewPost(Post newPost, final Context context) {
         NetworkService.getInstance()
                 .getJSONApi()
-                .addNewPost(newPost);
+                .addNewPost(newPost)
+                .enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+                        Toast success = Toast.makeText(context, context.getString(R.string.posted_successfelly), Toast.LENGTH_SHORT);
+                        success.show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
     }
 
     public void getComments(final RecyclerView commentRecycler, int postId){

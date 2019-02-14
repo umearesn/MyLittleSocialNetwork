@@ -1,5 +1,6 @@
 package com.network.akhme.myLittleSocialNetwork.domain.repository;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -13,7 +14,7 @@ public interface NetworkRepository {
 
     void getAllPosts(final RecyclerView feedRecycler, final OnPostListener onPostListener);
 
-    void addNewPost(Post newPost);
+    void addNewPost(Post newPost, Context context);
 
     void getComments(final RecyclerView commentRecycler, int position);
 

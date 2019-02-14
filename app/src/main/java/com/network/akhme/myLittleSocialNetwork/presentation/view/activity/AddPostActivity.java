@@ -29,7 +29,7 @@ public class AddPostActivity extends AppCompatActivity {
                         Post newPost = new Post(0, 0,
                                 editTitle.getText().toString(),
                                 editBody.getText().toString());
-                        new NetworkRepositoryImplementation().addNewPost(newPost);
+                        new NetworkRepositoryImplementation().addNewPost(newPost, getApplicationContext());
                         Intent toPostsPage = new Intent(AddPostActivity.this,
                                 PostsActivity.class);
                         startActivity(toPostsPage);

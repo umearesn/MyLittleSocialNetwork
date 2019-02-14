@@ -6,4 +6,5 @@
     <string name="add_body">Добавьте ваш пост</string>
     <string name="send_new_post">Отправить</string>
     <string name="comments">Комментарии</string>
+    <string name="posted_successfelly">Пост отправлен!</string>
 </resources>
