@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.network.akhme.myLittleSocialNetwork.presentation.view.holder.PostHolder;
 import com.network.akhme.myLittleSocialNetwork.presentation.view.listener.OnPostListener;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 

@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.presentation.view.activity;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.activities.pages;
 
 import android.content.Intent;
 import android.os.Bundle;

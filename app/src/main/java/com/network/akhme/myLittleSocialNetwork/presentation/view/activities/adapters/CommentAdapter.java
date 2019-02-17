@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.presentation.view.adapter;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.activities.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,14 +6,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.holder.CommentHolder;
 
 import java.util.ArrayList;
 
-public class CommentAdapter extends RecyclerView.Adapter<CommentHolder> {
+public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentHolder> {
+
+    class CommentHolder extends RecyclerView.ViewHolder {
+
+        private TextView authorName;
+        private TextView commentName;
+        private TextView commentBody;
+
+        private CommentHolder(View commentView) {
+            super(commentView);
+            authorName = commentView.findViewById(R.id.commentAuthor);
+            commentName = commentView.findViewById(R.id.commentName);
+            commentBody =  commentView.findViewById(R.id.commentBody);
+        }
+
+    }
 
     private ArrayList<Comment> commentsList;
 

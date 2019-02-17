@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.presentation.view.activity;
+package com.network.akhme.myLittleSocialNetwork.presentation.view.activities.pages;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +21,6 @@ public class PostsActivity extends AppCompatActivity {
             feedRecycler.getAdapter().getItemId(position);
             Intent testIntent = new Intent(PostsActivity.this, CommentsActivity.class);
             testIntent.putExtra("postId", position);
-            /*View postView = feedRecycler.getLayoutManager().findViewByPosition(position);
-            testIntent.putExtra("post", );*/
             startActivity(testIntent);
         }
     };
