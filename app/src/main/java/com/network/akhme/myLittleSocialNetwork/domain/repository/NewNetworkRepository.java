@@ -19,7 +19,7 @@ public interface NewNetworkRepository {
 
     void getAllPosts(CallbackInterface<ArrayList<Post>> callback);
 
-    void addNewPost(Post post, CallbackInterface<Post> callback, Context context);
+    void addNewPost(Post post, CallbackInterface<Post> callback);
 
     void getComments(int position, CallbackInterface<Comment> callback);
 

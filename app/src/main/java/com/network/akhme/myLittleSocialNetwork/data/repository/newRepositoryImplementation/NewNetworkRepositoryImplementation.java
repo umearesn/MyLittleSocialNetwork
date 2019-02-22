@@ -63,15 +63,15 @@ public class NewNetworkRepositoryImplementation implements NewNetworkRepository 
     }
 
     @Override
-    public void addNewPost(Post newPost, final CallbackInterface<Post> callback, final Context context) {
+    public void addNewPost(Post newPost, final CallbackInterface<Post> callback) {
         NewNetworkService.getApi()
                 .addNewPost(newPost)
                 .enqueue(new Callback<Post>() {
                     @Override
                     public void onResponse(Call<Post> call, Response<Post> response) {
-                        callback.onSuccess(response.body());
-                        Toast success = Toast.makeText(context, context.getString(R.string.posted_successfelly), Toast.LENGTH_SHORT);
-                        success.show();
+                        if(response.body() != null){
+                            callback.onSuccess(response.body());
+                        }
                     }
 
                     @Override

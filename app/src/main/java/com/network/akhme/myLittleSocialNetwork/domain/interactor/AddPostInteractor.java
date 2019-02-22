@@ -19,8 +19,8 @@ public class AddPostInteractor {
         this.networkRepository = networkRepository;
     }
 
-    public void addPost(Post newPost, CallbackInterface<Post> callback, Context context){
-        networkRepository.addNewPost(newPost, callback, context);
+    public void addPost(Post newPost, CallbackInterface<Post> callback){
+        networkRepository.addNewPost(newPost, callback);
     }
 
 }

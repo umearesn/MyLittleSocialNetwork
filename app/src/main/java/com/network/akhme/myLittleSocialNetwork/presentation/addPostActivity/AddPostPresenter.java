@@ -20,7 +20,7 @@ public class AddPostPresenter extends MvpPresenter<AddPostPageView> {
         this.addPostInteractor = addPostInteractor;
     }
 
-    public void createPost(Post newPost, Context context) {
+    public void createPost(Post newPost) {
         addPostInteractor.addPost(newPost, new CallbackInterface<Post>() {
             @Override
             public void onSuccess(List<Post> list) {}
@@ -32,7 +32,7 @@ public class AddPostPresenter extends MvpPresenter<AddPostPageView> {
 
             @Override
             public void onError(String message) {}
-        }, context);
+        });
     }
 
 

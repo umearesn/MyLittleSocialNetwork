@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
+import com.network.akhme.myLittleSocialNetwork.di.App;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.PostsPageActivity;
 import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.pages.AddPostActivity;
@@ -28,21 +29,27 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
         return presenter;
     }
 
-    final private EditText editTitle = findViewById(R.id.editPostTitle);
-    final private EditText editBody = findViewById(R.id.editPostBody);
+    EditText editTitle, editBody;
+    Button sendNewPost;
+    Post newPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_post_page);
-        Button sendNewPost = findViewById(R.id.sendButton);
+        this.sendNewPost = findViewById(R.id.sendButton);
+        this.editTitle = findViewById(R.id.editPostTitle);
+        this.editBody = findViewById(R.id.editPostBody);
         sendNewPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post newPost = new Post(0, 0,
+                newPost = new Post(0, 0,
                         editTitle.getText().toString(),
                         editBody.getText().toString());
-                presenter.createPost(newPost, getApplicationContext());
+                if (!newPost.getTitle().equals("") && !newPost.getBody().equals("")) {
+                    presenter.createPost(newPost);
+                }
                 Intent toPostsPage = new Intent(NewAddPostActivity.this,
                         PostsPageActivity.class);
                 startActivity(toPostsPage);
