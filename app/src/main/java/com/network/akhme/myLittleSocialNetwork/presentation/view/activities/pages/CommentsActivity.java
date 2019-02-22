@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.network.akhme.myLittleSocialNetwork.R;
-import com.network.akhme.myLittleSocialNetwork.data.NetworkRepositoryImplementation;
+import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 
 public class CommentsActivity extends AppCompatActivity {

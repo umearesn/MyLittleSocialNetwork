@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.data;
+package com.network.akhme.myLittleSocialNetwork.data.api;
 
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;

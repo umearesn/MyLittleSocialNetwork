@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.network.akhme.myLittleSocialNetwork.R;
-import com.network.akhme.myLittleSocialNetwork.data.NetworkRepositoryImplementation;
+import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
+import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.PostsPageActivity;
 
 public class AddPostActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class AddPostActivity extends AppCompatActivity {
                                 editBody.getText().toString());
                         new NetworkRepositoryImplementation().addNewPost(newPost, getApplicationContext());
                         Intent toPostsPage = new Intent(AddPostActivity.this,
-                                PostsActivity.class);
+                                PostsPageActivity.class);
                         startActivity(toPostsPage);
                     }
                 });

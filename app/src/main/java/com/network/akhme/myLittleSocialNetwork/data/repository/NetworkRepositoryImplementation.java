@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.data;
+package com.network.akhme.myLittleSocialNetwork.data.repository;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.network.akhme.myLittleSocialNetwork.R;
+import com.network.akhme.myLittleSocialNetwork.data.api.NetworkService;
+import com.network.akhme.myLittleSocialNetwork.data.api.JSONPlaceHolderApi;
 import com.network.akhme.myLittleSocialNetwork.domain.repository.NetworkRepository;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.adapters.CommentAdapter;

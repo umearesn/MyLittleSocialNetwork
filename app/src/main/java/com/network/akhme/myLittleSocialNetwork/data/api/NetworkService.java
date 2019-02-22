@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.data;
+package com.network.akhme.myLittleSocialNetwork.data.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
