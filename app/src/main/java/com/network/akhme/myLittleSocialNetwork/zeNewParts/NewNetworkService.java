@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.data.api.newNetworkService;
+package com.network.akhme.myLittleSocialNetwork.zeNewParts;
 
 import com.network.akhme.myLittleSocialNetwork.data.api.JSONPlaceHolderApi;
 
@@ -26,7 +26,9 @@ public class NewNetworkService {
                 .build();
     }
 
+
     public static JSONPlaceHolderApi getApi() {
+
         return mRetrofit.create(JSONPlaceHolderApi.class);
     }
 

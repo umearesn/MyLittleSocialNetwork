@@ -26,7 +26,7 @@
             android:name=".presentation.view.activities.pages.CommentsActivity">
         </activity>
         <activity
-            android:name=".presentation.addPostActivity.NewAddPostActivity">
+            android:name=".zeNewParts.addPostActivity.NewAddPostActivity">
         </activity>
 
     </application>

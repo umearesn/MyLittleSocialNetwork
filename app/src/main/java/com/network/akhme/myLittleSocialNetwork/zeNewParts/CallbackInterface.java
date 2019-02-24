@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.domain.callback;
+package com.network.akhme.myLittleSocialNetwork.zeNewParts;
 
 import java.util.List;
 

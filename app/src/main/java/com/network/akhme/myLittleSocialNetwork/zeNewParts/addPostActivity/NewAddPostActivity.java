@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity;
+package com.network.akhme.myLittleSocialNetwork.zeNewParts.addPostActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,19 +10,14 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.network.akhme.myLittleSocialNetwork.R;
-import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
-import com.network.akhme.myLittleSocialNetwork.di.App;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.PostsPageActivity;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.pages.AddPostActivity;
 
-import javax.inject.Inject;
 
 public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostPageView {
 
-    @Inject
     @InjectPresenter
-    AddPostPresenter presenter;
+    AddPostPresenter presenter = new AddPostPresenter();
 
     @ProvidePresenter
     AddPostPresenter provideAddPostPresenter(){
@@ -35,7 +30,6 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_post_page);
         this.sendNewPost = findViewById(R.id.sendButton);

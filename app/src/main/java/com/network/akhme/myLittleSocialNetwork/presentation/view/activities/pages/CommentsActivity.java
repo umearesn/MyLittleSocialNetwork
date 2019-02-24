@@ -20,6 +20,7 @@ public class CommentsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        //App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         Intent receivedIntent = getIntent();
         setContentView(R.layout.post_comments_page);
