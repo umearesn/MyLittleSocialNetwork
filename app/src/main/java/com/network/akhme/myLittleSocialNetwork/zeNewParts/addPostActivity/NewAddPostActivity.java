@@ -44,9 +44,9 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
                 if (!newPost.getTitle().equals("") && !newPost.getBody().equals("")) {
                     presenter.createPost(newPost);
                 }
-                Intent toPostsPage = new Intent(NewAddPostActivity.this,
+                /*Intent toPostsPage = new Intent(NewAddPostActivity.this,
                         PostsPageActivity.class);
-                startActivity(toPostsPage);
+                startActivity(toPostsPage);*/
             }
         });
     }
