@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.presentation.view.activities.adapters;
+package com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

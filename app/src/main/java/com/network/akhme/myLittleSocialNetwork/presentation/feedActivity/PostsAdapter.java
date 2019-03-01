@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.presentation.view.activities.adapters;
+package com.network.akhme.myLittleSocialNetwork.presentation.feedActivity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.listener.OnPostListener;
 
 import java.util.ArrayList;
 

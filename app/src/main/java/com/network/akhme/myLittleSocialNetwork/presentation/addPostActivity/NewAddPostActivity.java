@@ -1,4 +1,4 @@
-package com.network.akhme.myLittleSocialNetwork.zeNewParts.addPostActivity;
+package com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,16 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
-import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.PostsPageActivity;
+import com.network.akhme.myLittleSocialNetwork.di.App;
+
+import javax.inject.Inject;
 
 
 public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostPageView {
 
+    @Inject
     @InjectPresenter
-    AddPostPresenter presenter = new AddPostPresenter();
+    AddPostPresenter presenter;
 
     @ProvidePresenter
     AddPostPresenter provideAddPostPresenter(){
@@ -30,6 +33,8 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        //DaggerAppComponent
+        App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_post_page);
         this.sendNewPost = findViewById(R.id.sendButton);
@@ -44,9 +49,6 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
                 if (!newPost.getTitle().equals("") && !newPost.getBody().equals("")) {
                     presenter.createPost(newPost);
                 }
-                /*Intent toPostsPage = new Intent(NewAddPostActivity.this,
-                        PostsPageActivity.class);
-                startActivity(toPostsPage);*/
             }
         });
     }

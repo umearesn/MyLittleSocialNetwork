@@ -10,10 +10,8 @@ import android.widget.Button;
 
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.pages.AddPostActivity;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.pages.CommentsActivity;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.listener.OnPostListener;
-import com.network.akhme.myLittleSocialNetwork.zeNewParts.addPostActivity.NewAddPostActivity;
+import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentsActivity;
+import com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity.NewAddPostActivity;
 
 public class PostsPageActivity extends AppCompatActivity {
 

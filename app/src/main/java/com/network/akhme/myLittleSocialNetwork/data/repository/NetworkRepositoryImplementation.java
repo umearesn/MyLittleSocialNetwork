@@ -11,10 +11,10 @@ import com.network.akhme.myLittleSocialNetwork.data.api.NetworkService;
 import com.network.akhme.myLittleSocialNetwork.data.api.JSONPlaceHolderApi;
 import com.network.akhme.myLittleSocialNetwork.domain.repository.NetworkRepository;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.adapters.CommentAdapter;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.listener.OnPostListener;
+import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentAdapter;
+import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.OnPostListener;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
-import com.network.akhme.myLittleSocialNetwork.presentation.view.activities.adapters.PostsAdapter;
+import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.PostsAdapter;
 
 import java.util.ArrayList;
 

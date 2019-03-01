@@ -1,10 +1,15 @@
-package com.network.akhme.myLittleSocialNetwork.zeNewParts;
+package com.network.akhme.myLittleSocialNetwork.data.repository;
 
 import com.network.akhme.myLittleSocialNetwork.data.api.JSONPlaceHolderApi;
+import com.network.akhme.myLittleSocialNetwork.data.api.NewNetworkService;
+import com.network.akhme.myLittleSocialNetwork.domain.callback.CallbackInterface;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
+import com.network.akhme.myLittleSocialNetwork.domain.repository.NewNetworkRepository;
 
 import java.util.ArrayList;
+
+import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,7 +17,12 @@ import retrofit2.Response;
 
 public class NewNetworkRepositoryImplementation implements NewNetworkRepository {
 
-    JSONPlaceHolderApi api = NewNetworkService.getInstance().getApi();
+    private JSONPlaceHolderApi api = NewNetworkService.getApi();
+
+    @Inject
+    public NewNetworkRepositoryImplementation(JSONPlaceHolderApi api){
+        this.api = api;
+    }
 
     @Override
     public void getAllPosts(final CallbackInterface<ArrayList<Post>> callback) {
