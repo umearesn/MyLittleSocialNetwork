@@ -17,11 +17,29 @@ import retrofit2.Response;
 
 public class NewNetworkRepositoryImplementation implements NewNetworkRepository {
 
-    private JSONPlaceHolderApi api = NewNetworkService.getApi();
+    private JSONPlaceHolderApi api;
 
     @Inject
     public NewNetworkRepositoryImplementation(JSONPlaceHolderApi api){
         this.api = api;
+    }
+
+    @Override
+    public void getPostById(int id, final CallbackInterface<Post> callback) {
+        api.getPostWithID(id)
+                .enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+                        if (response.body() != null) {
+                            callback.onSuccess(response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+
+                    }
+                });
     }
 
     @Override
@@ -46,7 +64,9 @@ public class NewNetworkRepositoryImplementation implements NewNetworkRepository 
                 .enqueue(new Callback<ArrayList<Comment>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Comment>> call, Response<ArrayList<Comment>> response) {
-                        callback.onSuccess(response.body());
+                        if (response.body() != null) {
+                            callback.onSuccess(response.body());
+                        }
                     }
 
                     @Override

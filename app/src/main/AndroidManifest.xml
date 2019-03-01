@@ -24,7 +24,7 @@
             android:name=".presentation.commentsPageActivity.CommentsActivity">
         </activity>
         <activity
-            android:name=".presentation.addPostActivity.NewAddPostActivity">
+            android:name=".presentation.addPostActivity.AddPostActivity">
         </activity>
 
     </application>

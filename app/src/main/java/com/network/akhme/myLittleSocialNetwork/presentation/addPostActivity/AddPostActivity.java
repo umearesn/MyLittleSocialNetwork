@@ -16,15 +16,15 @@ import com.network.akhme.myLittleSocialNetwork.di.App;
 import javax.inject.Inject;
 
 
-public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostPageView {
+public class AddPostActivity extends MvpAppCompatActivity implements AddPostPageView {
 
     @Inject
     @InjectPresenter
-    AddPostPresenter presenter;
+    AddPostPresenter addPostPresenter;
 
     @ProvidePresenter
     AddPostPresenter provideAddPostPresenter(){
-        return presenter;
+        return this.addPostPresenter;
     }
 
     EditText editTitle, editBody;
@@ -33,7 +33,6 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        //DaggerAppComponent
         App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_post_page);
@@ -47,7 +46,7 @@ public class NewAddPostActivity extends MvpAppCompatActivity implements AddPostP
                         editTitle.getText().toString(),
                         editBody.getText().toString());
                 if (!newPost.getTitle().equals("") && !newPost.getBody().equals("")) {
-                    presenter.createPost(newPost);
+                    addPostPresenter.createPost(newPost);
                 }
             }
         });

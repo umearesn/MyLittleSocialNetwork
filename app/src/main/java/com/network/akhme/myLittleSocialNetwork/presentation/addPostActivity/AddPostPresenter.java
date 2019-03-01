@@ -6,6 +6,7 @@ import com.network.akhme.myLittleSocialNetwork.domain.callback.CallbackInterface
 import com.network.akhme.myLittleSocialNetwork.domain.interactor.AddPostInteractor;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ public class AddPostPresenter extends MvpPresenter<AddPostPageView> {
     public void createPost(Post newPost) {
         addPostInteractor.addPost(newPost, new CallbackInterface<Post>() {
             @Override
-            public void onSuccess(List<Post> list) {}
+            public void onSuccess(ArrayList<Post> list) {}
 
             @Override
             public void onSuccess(Post post) {

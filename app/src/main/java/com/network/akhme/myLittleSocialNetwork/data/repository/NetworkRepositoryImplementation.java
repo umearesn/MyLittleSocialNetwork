@@ -84,7 +84,7 @@ public class NetworkRepositoryImplementation implements NetworkRepository {
                 .enqueue(new Callback<ArrayList<Comment>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Comment>> call, Response<ArrayList<Comment>> response) {
-                        commentRecycler.setAdapter(new CommentAdapter(response.body()));
+                        commentRecycler.setAdapter(new CommentAdapter());
                     }
 
                     @Override

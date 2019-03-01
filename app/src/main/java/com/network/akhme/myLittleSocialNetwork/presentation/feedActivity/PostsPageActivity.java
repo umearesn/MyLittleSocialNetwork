@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
 import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentsActivity;
-import com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity.NewAddPostActivity;
+import com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity.AddPostActivity;
 
 public class PostsPageActivity extends AppCompatActivity {
 
@@ -40,7 +40,7 @@ public class PostsPageActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent toAddPostPage = new Intent(PostsPageActivity.this,
-                                NewAddPostActivity.class);
+                                AddPostActivity.class);
                         startActivity(toAddPostPage);
                     }
                 });
