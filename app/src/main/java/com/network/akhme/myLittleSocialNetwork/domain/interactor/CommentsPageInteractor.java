@@ -3,16 +3,17 @@ package com.network.akhme.myLittleSocialNetwork.domain.interactor;
 import com.network.akhme.myLittleSocialNetwork.domain.callback.CallbackInterface;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
-import com.network.akhme.myLittleSocialNetwork.domain.repository.NewNetworkRepository;
+import com.network.akhme.myLittleSocialNetwork.domain.repository.NetworkRepository;
 
 import javax.inject.Inject;
 
-public class CommentsInteractor {
-    private NewNetworkRepository networkRepository;
+public class CommentsPageInteractor {
+
+    private NetworkRepository networkRepository;
 
     @Inject
-    CommentsInteractor(NewNetworkRepository newNetworkRepository){
-        this.networkRepository = newNetworkRepository;
+    CommentsPageInteractor(NetworkRepository networkRepository){
+        this.networkRepository = networkRepository;
     }
 
     public void getClickedPost(int id, CallbackInterface<Post> callback){

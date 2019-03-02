@@ -1,7 +1,7 @@
 package com.network.akhme.myLittleSocialNetwork.data.api;
 
-import com.network.akhme.myLittleSocialNetwork.domain.repository.NewNetworkRepository;
-import com.network.akhme.myLittleSocialNetwork.data.repository.NewNetworkRepositoryImplementation;
+import com.network.akhme.myLittleSocialNetwork.domain.repository.NetworkRepository;
+import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
 
 import dagger.Module;
 import dagger.Provides;
@@ -42,14 +42,14 @@ public class NewNetworkService {
     }
 
     @Provides
-    NewNetworkRepository provideNetworkRepository(){
+    NetworkRepository provideNetworkRepository(){
         Retrofit retrofit = new Retrofit
                 .Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        return new NewNetworkRepositoryImplementation(retrofit.create(JSONPlaceHolderApi.class));
+        return new NetworkRepositoryImplementation(retrofit.create(JSONPlaceHolderApi.class));
     }
 
 }

@@ -1,6 +1,7 @@
 package com.network.akhme.myLittleSocialNetwork.presentation.feedActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,10 @@ import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 import java.util.ArrayList;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostHolder> {
+
+
+    private ArrayList<Post> postsFeed;
+    private OnPostListener onPostListener;
 
     class PostHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView authorView;
@@ -36,12 +41,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostHolder> 
         }
     }
 
-    private ArrayList<Post> postsFeed;
-    private OnPostListener onPostListener;
-
-    public PostsAdapter(ArrayList<Post> post, OnPostListener onPostListener){
-        this.postsFeed = post;
+    PostsAdapter(OnPostListener onPostListener){
+        this.postsFeed = new ArrayList<>();
         this.onPostListener = onPostListener;
+    }
+
+
+    public void getPosts(ArrayList<Post> feed){
+        this.postsFeed.addAll(feed);
+        notifyDataSetChanged();
     }
 
     @Override

@@ -1,20 +1,21 @@
 package com.network.akhme.myLittleSocialNetwork.domain.repository;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.network.akhme.myLittleSocialNetwork.presentation.feedActivity.OnPostListener;
+import com.network.akhme.myLittleSocialNetwork.domain.callback.CallbackInterface;
+import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
+
+import java.util.ArrayList;
 
 public interface NetworkRepository {
 
-    void getPostById(int id, final View postView);
+    void getPostById(int id, CallbackInterface<Post> callback);
 
-    void getAllPosts(final RecyclerView feedRecycler, final OnPostListener onPostListener);
+    void getAllPosts(CallbackInterface<Post> callback);
 
-    void addNewPost(Post newPost, Context context);
+    void addNewPost(Post post, CallbackInterface<Post> callback);
 
-    void getComments(final RecyclerView commentRecycler, int position);
+    void getComments(int position, CallbackInterface<Comment> callback);
 
 }
