@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.commentsPageActivity.CommentsActivity">
+            android:name=".presentation.commentsPageActivity.CommentsPageActivity">
         </activity>
         <activity
             android:name=".presentation.addPostActivity.AddPostActivity">

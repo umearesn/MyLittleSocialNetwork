@@ -32,14 +32,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentH
 
     private ArrayList<Comment> commentsList = new ArrayList<Comment>();
 
-    public void setComments(ArrayList<Comment> list){
+    public void getComments(ArrayList<Comment> list){
         this.commentsList.addAll(list);
         notifyDataSetChanged();
     }
-
-    /*public CommentAdapter(ArrayList<Comment> comments){
-        this.commentsList = comments;
-    }*/
 
     @NonNull
     @Override

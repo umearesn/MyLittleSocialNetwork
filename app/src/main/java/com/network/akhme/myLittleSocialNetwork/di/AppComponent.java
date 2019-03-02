@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.network.akhme.myLittleSocialNetwork.data.api.NewNetworkService;
 import com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity.AddPostActivity;
-import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentsActivity;
+import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentsPageActivity;
 
 import javax.inject.Singleton;
 
@@ -16,7 +16,7 @@ import dagger.Component;
 public interface AppComponent {
 
     void inject(AddPostActivity addPostActivity);
-    void inject(CommentsActivity commentsActivity);
+    void inject(CommentsPageActivity commentsPageActivity);
 
     @Component.Builder
     interface Builder {

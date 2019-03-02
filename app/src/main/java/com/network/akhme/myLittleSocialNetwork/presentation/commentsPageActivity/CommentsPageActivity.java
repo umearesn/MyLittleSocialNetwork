@@ -1,8 +1,6 @@
 package com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,7 +10,6 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.network.akhme.myLittleSocialNetwork.R;
-import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
 import com.network.akhme.myLittleSocialNetwork.di.App;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
@@ -21,20 +18,19 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-public class CommentsActivity extends MvpAppCompatActivity implements CommentsPageView  {
+public class CommentsPageActivity extends MvpAppCompatActivity implements CommentsPageView  {
 
     @Inject
     @InjectPresenter
-    CommentsPresenter commentsPresenter;
+    CommentsPagePresenter commentsPagePresenter;
 
     @ProvidePresenter
-    CommentsPresenter provideCommentsPresenter(){
-        return this.commentsPresenter;
+    CommentsPagePresenter provideCommentsPresenter(){
+        return this.commentsPagePresenter;
     }
 
     private CommentAdapter commentAdapter;
     private View postView;
-    private Post openedPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -43,31 +39,27 @@ public class CommentsActivity extends MvpAppCompatActivity implements CommentsPa
         setContentView(R.layout.post_comments_page);
         int id = getIntent().getExtras().getInt("postId")+ 1;
         this.commentAdapter = new CommentAdapter();
-        RecyclerView commentsRecycler;
-        commentsRecycler = findViewById(R.id.commentsList);
+        RecyclerView commentsRecycler = findViewById(R.id.commentsList);
         commentsRecycler.setAdapter(this.commentAdapter);
         commentsRecycler.setLayoutManager(new LinearLayoutManager(this));
-        commentsPresenter.provideComments(id);
-
-
         postView = findViewById(R.id.openedPost);
-        commentsPresenter.providePostClicked(id);
+        commentsPagePresenter.providePostClicked(id);
+        commentsPagePresenter.provideComments(id);
     }
 
     @Override
     public void getClickedPost(Post post) {
-        this.openedPost = post;
-        final TextView author = (TextView) postView.findViewById(R.id.postAuthor);
-        author.setText(Integer.toString(openedPost.getUserId()));
-        final TextView title =  (TextView) postView.findViewById(R.id.postTitle);
-        title.setText(openedPost.getTitle());
-        final TextView body =  (TextView) postView.findViewById(R.id.postBody);
-        body.setText(openedPost.getBody());
+        final TextView author = postView.findViewById(R.id.postAuthor);
+        author.setText(Integer.toString(post.getUserId()));
+        final TextView title =  postView.findViewById(R.id.postTitle);
+        title.setText(post.getTitle());
+        final TextView body = postView.findViewById(R.id.postBody);
+        body.setText(post.getBody());
     }
 
     @Override
     public void getCommentsForPost(ArrayList<Comment> list) {
-        this.commentAdapter.setComments(list);
+        this.commentAdapter.getComments(list);
     }
 
 }

@@ -12,16 +12,14 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 @InjectViewState
-public class CommentsPresenter extends MvpPresenter<CommentsPageView> {
+public class CommentsPagePresenter extends MvpPresenter<CommentsPageView> {
 
     private CommentsInteractor commentsInteractor;
 
     @Inject
-    CommentsPresenter(CommentsInteractor commentsInteractor){
+    CommentsPagePresenter(CommentsInteractor commentsInteractor){
         this.commentsInteractor = commentsInteractor;
     }
-
-    private Post postClicked;
 
     public void providePostClicked(int id){
         commentsInteractor.getClickedPost(id, new CallbackInterface<Post>() {

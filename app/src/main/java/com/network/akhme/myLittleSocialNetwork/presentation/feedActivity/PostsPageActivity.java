@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import com.network.akhme.myLittleSocialNetwork.R;
 import com.network.akhme.myLittleSocialNetwork.data.repository.NetworkRepositoryImplementation;
-import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentsActivity;
+import com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity.CommentsPageActivity;
 import com.network.akhme.myLittleSocialNetwork.presentation.addPostActivity.AddPostActivity;
 
 public class PostsPageActivity extends AppCompatActivity {
@@ -20,7 +20,7 @@ public class PostsPageActivity extends AppCompatActivity {
         @Override
         public void onPostClick(int position) {
             feedRecycler.getAdapter().getItemId(position);
-            Intent testIntent = new Intent(PostsPageActivity.this, CommentsActivity.class);
+            Intent testIntent = new Intent(PostsPageActivity.this, CommentsPageActivity.class);
             testIntent.putExtra("postId", position);
             startActivity(testIntent);
         }
