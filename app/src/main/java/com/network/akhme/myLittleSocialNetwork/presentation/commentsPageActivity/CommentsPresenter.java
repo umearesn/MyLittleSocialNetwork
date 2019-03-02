@@ -5,10 +5,9 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.network.akhme.myLittleSocialNetwork.domain.callback.CallbackInterface;
 import com.network.akhme.myLittleSocialNetwork.domain.interactor.CommentsInteractor;
 import com.network.akhme.myLittleSocialNetwork.domain.model.Comment;
-import com.network.akhme.myLittleSocialNetwork.domain.repository.NewNetworkRepository;
+import com.network.akhme.myLittleSocialNetwork.domain.model.Post;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -22,8 +21,18 @@ public class CommentsPresenter extends MvpPresenter<CommentsPageView> {
         this.commentsInteractor = commentsInteractor;
     }
 
-    public void providePostClicked(int id){
+    private Post postClicked;
 
+    public void providePostClicked(int id){
+        commentsInteractor.getClickedPost(id, new CallbackInterface<Post>() {
+            @Override
+            public void onSuccess(ArrayList<Post> list) {}
+
+            @Override
+            public void onSuccess(Post temp) {
+                getViewState().getClickedPost(temp);
+            }
+        });
     }
 
     public void provideComments(int id){

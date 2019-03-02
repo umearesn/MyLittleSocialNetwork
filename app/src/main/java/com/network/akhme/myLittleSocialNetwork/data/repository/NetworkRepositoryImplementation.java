@@ -79,19 +79,6 @@ public class NetworkRepositoryImplementation implements NetworkRepository {
                 });
     }
 
-    public void getComments(final RecyclerView commentRecycler, int postId){
-        networkApi.getComments(postId)
-                .enqueue(new Callback<ArrayList<Comment>>() {
-                    @Override
-                    public void onResponse(Call<ArrayList<Comment>> call, Response<ArrayList<Comment>> response) {
-                        commentRecycler.setAdapter(new CommentAdapter());
-                    }
-
-                    @Override
-                    public void onFailure(Call<ArrayList<Comment>> call, Throwable t) {
-                        t.printStackTrace();
-                    }
-                });
-    }
+    public void getComments(final RecyclerView commentRecycler, int postId){ }
 }
 

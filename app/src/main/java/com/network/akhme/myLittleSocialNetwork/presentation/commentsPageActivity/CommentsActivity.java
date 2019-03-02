@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -48,15 +49,20 @@ public class CommentsActivity extends MvpAppCompatActivity implements CommentsPa
         commentsRecycler.setLayoutManager(new LinearLayoutManager(this));
         commentsPresenter.provideComments(id);
 
-        /*
+
         postView = findViewById(R.id.openedPost);
-        repo.getPostById(receivedIntent.getExtras().getInt("postId") + 1, postView);
-        */
+        commentsPresenter.providePostClicked(id);
     }
 
     @Override
-    public void getClickedPost(int id) {
-
+    public void getClickedPost(Post post) {
+        this.openedPost = post;
+        final TextView author = (TextView) postView.findViewById(R.id.postAuthor);
+        author.setText(Integer.toString(openedPost.getUserId()));
+        final TextView title =  (TextView) postView.findViewById(R.id.postTitle);
+        title.setText(openedPost.getTitle());
+        final TextView body =  (TextView) postView.findViewById(R.id.postBody);
+        body.setText(openedPost.getBody());
     }
 
     @Override
