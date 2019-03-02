@@ -31,30 +31,31 @@ public class CommentsActivity extends MvpAppCompatActivity implements CommentsPa
         return this.commentsPresenter;
     }
 
-    private RecyclerView commentsRecycler;
-    private CommentAdapter commentAdapter = new CommentAdapter();
+    private CommentAdapter commentAdapter;
     private View postView;
     private Post openedPost;
-    private NetworkRepositoryImplementation repo = new NetworkRepositoryImplementation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_comments_page);
-        Intent receivedIntent = getIntent();
+        int id = getIntent().getExtras().getInt("postId")+ 1;
+        this.commentAdapter = new CommentAdapter();
+        RecyclerView commentsRecycler;
         commentsRecycler = findViewById(R.id.commentsList);
         commentsRecycler.setAdapter(this.commentAdapter);
         commentsRecycler.setLayoutManager(new LinearLayoutManager(this));
-        commentsPresenter.provideComments(receivedIntent.getExtras().getInt("postId")+ 1);
+        commentsPresenter.provideComments(id);
 
-
+        /*
         postView = findViewById(R.id.openedPost);
         repo.getPostById(receivedIntent.getExtras().getInt("postId") + 1, postView);
+        */
     }
 
     @Override
-    public void getClickedPost() {
+    public void getClickedPost(int id) {
 
     }
 
@@ -63,8 +64,4 @@ public class CommentsActivity extends MvpAppCompatActivity implements CommentsPa
         this.commentAdapter.setComments(list);
     }
 
-    /*@Override
-    public void getCommentsForPost() {
-
-    }*/
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface CommentsPageView extends MvpView {
 
-    void getClickedPost();
+    void getClickedPost(int id);
 
     void getCommentsForPost(ArrayList<Comment> list);
 

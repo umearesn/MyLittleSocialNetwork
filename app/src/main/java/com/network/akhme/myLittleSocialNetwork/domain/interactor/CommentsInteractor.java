@@ -14,10 +14,10 @@ public class CommentsInteractor {
         this.networkRepository = newNetworkRepository;
     }
 
-    public void getPostClicked(){}
+    public void getPostClicked(int id){}
 
-    public void getComments(int position, final CallbackInterface<Comment> callback){
-        networkRepository.getComments(position, callback);
+    public void getComments(int id, CallbackInterface<Comment> callback){
+        networkRepository.getComments(id, callback);
     }
 
 }

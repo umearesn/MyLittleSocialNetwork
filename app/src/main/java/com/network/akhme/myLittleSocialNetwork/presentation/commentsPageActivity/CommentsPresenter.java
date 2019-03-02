@@ -1,5 +1,6 @@
 package com.network.akhme.myLittleSocialNetwork.presentation.commentsPageActivity;
 
+import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.network.akhme.myLittleSocialNetwork.domain.callback.CallbackInterface;
 import com.network.akhme.myLittleSocialNetwork.domain.interactor.CommentsInteractor;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+@InjectViewState
 public class CommentsPresenter extends MvpPresenter<CommentsPageView> {
 
     private CommentsInteractor commentsInteractor;
@@ -20,7 +22,7 @@ public class CommentsPresenter extends MvpPresenter<CommentsPageView> {
         this.commentsInteractor = commentsInteractor;
     }
 
-    public void providePostClicked(){
+    public void providePostClicked(int id){
 
     }
 
